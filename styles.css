@@ -88,3 +88,70 @@ label {
 .projects-h2 {
   margin: 0;
 }
+
+/* ★。------ ＼ Resume page／------。★ */
+
+.resume-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.resume-header h1 {
+  margin: 0;
+  font-size: 2em;
+  color: #444;
+}
+
+.resume-contact {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.resume-section {
+  margin-top: 20px;
+}
+
+.resume-section h2 {
+  margin-bottom: 10px;
+  font-size: 1.4em;
+  color: #222;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 10px;
+}
+
+.resume-grid div {
+  padding: 5px;
+}
+
+.resume-grid-title {
+  font-weight: bold;
+  color: #444;
+}
+
+.resume-grid-content {
+  color: #555;
+}
+
+.resume-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.resume-list li {
+  margin-bottom: 5px;
+}
