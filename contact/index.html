@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact</title>
+    <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
     <h1>Contact</h1>
@@ -15,11 +16,22 @@
       <a href="../resume/index.html">Resume</a>
     </nav>
 
-    <form action="mailto:brchiou@ucsd.edu" method="POST" enctype="text/plain">
-      <label>Email:<input type="email" name="email" /></label>
-      <label>Subject:<input type="text" name="subject" /></label>
-      <label>Body:<textarea name="body"></textarea></label>
-      <button>Submit</button>
+    <form
+      class="form-grid-wrapper"
+      action="mailto:brchiou@ucsd.edu"
+      method="POST"
+      enctype="text/plain"
+    >
+      <label class="form-subgrid-wrapper"
+        >Email:<input type="email" name="email"
+      /></label>
+      <label class="form-subgrid-wrapper"
+        >Subject:<input type="text" name="subject"
+      /></label>
+      <label class="form-subgrid-wrapper"
+        >Body:<textarea name="body"></textarea>
+      </label>
+      <button class="form-grid-submit-button">Send</button>
     </form>
   </body>
 </html>
