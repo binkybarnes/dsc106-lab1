@@ -24,12 +24,10 @@ const pages = [
   { url: "https://github.com/binkybarnes/", title: "Github" },
 ];
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
-
 const createNavLink = ({ url, title }) => {
   let a = document.createElement("a");
   a.href =
-    !ARE_WE_HOME && !url.startsWith("http") ? "../" + url : { basePath } + url;
-  console.log(!ARE_WE_HOME, !url.startsWith("http"));
+    !ARE_WE_HOME && !url.startsWith("http") ? "../" + url : basePath + url;
   a.textContent = title;
   console.log(a.href);
   const isCurrentPage =
