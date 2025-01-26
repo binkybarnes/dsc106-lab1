@@ -109,7 +109,7 @@ select {
 .resume-container {
   max-width: 800px;
   margin: 0 auto;
-  background: white;
+  /* background: white; */
   padding: 20px;
 }
 
@@ -121,12 +121,12 @@ select {
 .resume-header h1 {
   margin: 0;
   font-size: 2em;
-  color: #444;
+  /* color: #444; */
 }
 
 .resume-contact {
   font-size: 0.9em;
-  color: #666;
+  /* color: #666; */
 }
 
 .resume-section {
@@ -136,7 +136,7 @@ select {
 .resume-section h2 {
   margin-bottom: 10px;
   font-size: 1.4em;
-  color: #222;
+  /* color: #222; */
   border-bottom: 2px solid #ddd;
   padding-bottom: 5px;
 }
@@ -153,11 +153,11 @@ select {
 
 .resume-grid-title {
   font-weight: bold;
-  color: #444;
+  /* color: #444; */
 }
 
 .resume-grid-content {
-  color: #555;
+  /* color: #555; */
 }
 
 .resume-list {

@@ -15,16 +15,17 @@
 // nav bar
 
 const pages = [
-  { url: "/", title: "Home" },
-  { url: "/projects/", title: "Projects" },
-  { url: "/resume/", title: "Resume" },
-  { url: "/contact/", title: "Contact" },
+  { url: "", title: "Home" },
+  { url: "projects/", title: "Projects" },
+  { url: "resume/", title: "Resume" },
+  { url: "contact/", title: "Contact" },
   { url: "https://github.com/binkybarnes/", title: "Github" },
 ];
+const ARE_WE_HOME = document.documentElement.classList.contains("home");
 
 const createNavLink = ({ url, title }) => {
   let a = document.createElement("a");
-  a.href = url;
+  a.href = !ARE_WE_HOME && !url.startsWith("http") ? "../" + url : url;
   a.textContent = title;
   const isCurrentPage =
     a.host === location.host && a.pathname === location.pathname;
