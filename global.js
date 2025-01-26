@@ -17,10 +17,10 @@ const basePath =
   window.location.hostname === "binkybarnes.github.io" ? "dsc106-lab1/" : "";
 
 const pages = [
-  { url: `${basePath}`, title: "Home" },
-  { url: `${basePath}projects/`, title: "Projects" },
-  { url: `${basePath}resume/`, title: "Resume" },
-  { url: `${basePath}contact/`, title: "Contact" },
+  { url: ``, title: "Home" },
+  { url: `projects/`, title: "Projects" },
+  { url: `resume/`, title: "Resume" },
+  { url: `contact/`, title: "Contact" },
   { url: "https://github.com/binkybarnes/", title: "Github" },
 ];
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
