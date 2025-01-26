@@ -13,12 +13,14 @@
 // console.log(currentLink.classList);
 
 // nav bar
+const basePath =
+  window.location.hostname === "binkybarnes.github.io" ? "dsc106-lab1/" : "";
 
 const pages = [
-  { url: "", title: "Home" },
-  { url: "projects/", title: "Projects" },
-  { url: "resume/", title: "Resume" },
-  { url: "contact/", title: "Contact" },
+  { url: `${basePath}`, title: "Home" },
+  { url: `${basePath}projects/`, title: "Projects" },
+  { url: `${basePath}resume/`, title: "Resume" },
+  { url: `${basePath}contact/`, title: "Contact" },
   { url: "https://github.com/binkybarnes/", title: "Github" },
 ];
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
@@ -60,12 +62,13 @@ document.body.insertAdjacentHTML(
  </label>`
 );
 
+const select = document.querySelector("label.color-scheme select");
 const setColorScheme = (colorScheme) => {
   console.log("color scheme changed to", colorScheme);
   document.documentElement.style.setProperty("color-scheme", colorScheme);
+  select.value = colorScheme;
   localStorage.colorScheme = colorScheme;
 };
-const select = document.querySelector("label.color-scheme select");
 if ("colorScheme" in localStorage) {
   const savedColorSchemeValue = localStorage.colorScheme;
   setColorScheme(savedColorSchemeValue);
