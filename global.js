@@ -13,8 +13,8 @@
 // console.log(currentLink.classList);
 
 // nav bar
-const basePath =
-  window.location.hostname === "binkybarnes.github.io" ? "dsc106-lab1/" : "";
+// const basePath =
+//   window.location.hostname === "binkybarnes.github.io" ? "dsc106-lab1/" : "";
 console.log("mostrecent 3");
 const pages = [
   { url: ``, title: "Home" },
@@ -26,8 +26,8 @@ const pages = [
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
 const createNavLink = ({ url, title }) => {
   let a = document.createElement("a");
-  a.href =
-    !ARE_WE_HOME && !url.startsWith("http") ? "../" + url : basePath + url;
+  a.href = !ARE_WE_HOME && !url.startsWith("http") ? "../" + url : url;
+  console.log(!ARE_WE_HOME, !url.startsWith("http"));
   a.textContent = title;
   console.log(a.href);
   const isCurrentPage =
