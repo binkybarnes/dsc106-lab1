@@ -15,19 +15,20 @@
 // nav bar
 const basePath =
   window.location.hostname === "binkybarnes.github.io" ? "dsc106-lab1/" : "";
-console.log("mostrecent 2");
+console.log("mostrecent 3");
 const pages = [
-  { url: `${basePath}`, title: "Home" },
-  { url: `${basePath}projects/`, title: "Projects" },
-  { url: `${basePath}resume/`, title: "Resume" },
-  { url: `${basePath}contact/`, title: "Contact" },
+  { url: ``, title: "Home" },
+  { url: `projects/`, title: "Projects" },
+  { url: `resume/`, title: "Resume" },
+  { url: `contact/`, title: "Contact" },
   { url: "https://github.com/binkybarnes/", title: "Github" },
 ];
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
 
 const createNavLink = ({ url, title }) => {
   let a = document.createElement("a");
-  a.href = !ARE_WE_HOME && !url.startsWith("http") ? "../" + url : url;
+  a.href =
+    !ARE_WE_HOME && !url.startsWith("http") ? "../" + url : { basePath } + url;
   a.textContent = title;
   const isCurrentPage =
     a.host === location.host && a.pathname === location.pathname;
