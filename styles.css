@@ -2,6 +2,10 @@
   --color-accent: oklch(81.32% 0.1899 108.53);
 }
 
+html {
+  color-scheme: light dark;
+}
+
 body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
@@ -23,37 +27,48 @@ h6 {
   text-wrap: balance;
 }
 
+/* ★。------ ＼ Light dark switcher／------。★ */
+label.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+}
+
 /* ★。------ ＼Nav／------。★ */
 nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+
   display: flex;
   margin-bottom: 2em;
-  border-bottom: 1px solid oklch(80% 3% 200);
-}
+  border-bottom: 1px solid var(--border-color);
+  a {
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    padding: 0.5em;
+  }
 
-a {
-  flex: 1;
-  text-decoration: none;
-  color: inherit;
-  text-align: center;
-  padding: 0.5em;
-}
+  a.current {
+    border-bottom: 0.4em solid var(--border-color);
+    padding-bottom: 0.1em;
+  }
 
-a.current {
-  border-bottom: 0.4em solid oklch(80% 3% 200);
-  padding-bottom: 0.1em;
-}
-
-a:hover {
-  border-bottom: 0.4em solid var(--color-accent);
-  padding-bottom: 0.1em;
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  a:hover {
+    border-bottom: 0.4em solid var(--color-accent);
+    padding-bottom: 0.1em;
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  }
 }
 
 /* ★。------ ＼ Contact page｜／------。★ */
 
 input,
 textarea,
-label {
+label,
+button,
+select {
   font: inherit;
 }
 
