@@ -29,6 +29,7 @@ const createNavLink = ({ url, title }) => {
   let a = document.createElement("a");
   a.href =
     !ARE_WE_HOME && !url.startsWith("http") ? "../" + url : { basePath } + url;
+  console.log(!ARE_WE_HOME, !url.startsWith("http"));
   a.textContent = title;
   console.log(a.href);
   const isCurrentPage =
