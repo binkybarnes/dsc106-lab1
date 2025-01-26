@@ -13,9 +13,7 @@
 // console.log(currentLink.classList);
 
 // nav bar
-const basePath =
-  window.location.hostname === "binkybarnes.github.io" ? "dsc106-lab1/" : "";
-
+console.log("most recent");
 const pages = [
   { url: ``, title: "Home" },
   { url: `projects/`, title: "Projects" },
