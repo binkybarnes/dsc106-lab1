@@ -30,6 +30,7 @@ const createNavLink = ({ url, title }) => {
   a.href =
     !ARE_WE_HOME && !url.startsWith("http") ? "../" + url : { basePath } + url;
   a.textContent = title;
+  console.log(a.href);
   const isCurrentPage =
     a.host === location.host && a.pathname === location.pathname;
   a.classList.toggle("current", isCurrentPage);
