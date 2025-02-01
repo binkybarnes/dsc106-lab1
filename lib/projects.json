@@ -1,13 +1,13 @@
 [
 	{
 		"title": "Rainfall and Sunshine's Correlation with Car Crashes",
-		"image": "/images/project1_img.png",
+		"image": "https://grist.org/wp-content/uploads/2022/07/GettyImages-592034559-1-e1658260204585.jpg",
 		"description": "This project explores the impact of weather conditions—specifically rainfall and sunshine—on car accident rates. By analyzing real-world data, it aims to uncover patterns and correlations that could help improve road safety measures and accident prevention strategies.",
 		"year": 2025
 	},
 	{
 		"title": "Harmony Messaging App",
-		"image": "/images/Discord_Canary.webp",
+		"image": "https://static.wikia.nocookie.net/discord/images/4/47/Discord_Canary.png/revision/latest?cb=20210918142724",
 		"description": "Harmony is a modern messaging application designed for seamless communication. Inspired by platforms like Discord, it offers real-time chat, voice communication, and community features, all wrapped in a user-friendly interface. The app focuses on reliability, performance, and user engagement.",
 		"year": 2024
 	},
