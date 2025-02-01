@@ -104,6 +104,12 @@ select {
   margin: 0;
 }
 
+.project-image {
+  width: 325px;
+  height: 163px;
+  object-fit: contain;
+}
+
 /* ★。------ ＼ Resume page／------。★ */
 
 .resume-container {
@@ -169,4 +175,21 @@ select {
 
 .resume-list li {
   margin-bottom: 5px;
+}
+
+/* ★。------ ＼ Github Stats／------。★ */
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  gap: 10px;
+
+  dt {
+    grid-row: 1;
+  }
+
+  dd {
+    grid-row: 2;
+    margin: 0;
+  }
 }
