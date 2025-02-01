@@ -1,13 +1,13 @@
 [
 	{
 		"title": "Rainfall and Sunshine's Correlation with Car Crashes",
-		"image": "../images/project1_img.png",
+		"image": "/images/project1_img.png",
 		"description": "This project explores the impact of weather conditions—specifically rainfall and sunshine—on car accident rates. By analyzing real-world data, it aims to uncover patterns and correlations that could help improve road safety measures and accident prevention strategies.",
 		"year": 2025
 	},
 	{
 		"title": "Harmony Messaging App",
-		"image": "../images/Discord_Canary.webp",
+		"image": "/images/Discord_Canary.webp",
 		"description": "Harmony is a modern messaging application designed for seamless communication. Inspired by platforms like Discord, it offers real-time chat, voice communication, and community features, all wrapped in a user-friendly interface. The app focuses on reliability, performance, and user engagement.",
 		"year": 2024
 	},
