@@ -30,8 +30,7 @@ const createNavLink = ({ url, title }) => {
   console.log(!ARE_WE_HOME, !url.startsWith("http"));
   a.textContent = title;
   console.log(a.href);
-  const isCurrentPage =
-    a.host === location.host && a.pathname === location.pathname;
+  const isCurrentPage = a.host === location.host && a.pathname === location.pathname;
   a.classList.toggle("current", isCurrentPage);
   if (a.host !== location.host) a.target = "_blank";
 
@@ -54,9 +53,7 @@ document.body.insertAdjacentHTML(
 	<label class="color-scheme">
    Theme:
    <select>
-     <option value="light dark">Automatic (${
-       isDark ? "Dark" : "Light"
-     })</option>
+     <option value="light dark">Automatic (${isDark ? "Dark" : "Light"})</option>
      <option value="light">Light</option>
      <option value="dark">Dark</option>
    </select>
@@ -109,11 +106,7 @@ export async function fetchJSON(url) {
   }
 }
 
-export function renderProjects(
-  projects,
-  containerElement,
-  headingLevel = "h2"
-) {
+export function renderProjects(projects, containerElement, headingLevel = "h2") {
   // Your code will go here
   if (!(containerElement instanceof HTMLElement)) {
     console.error("Invalid container element provided.");
@@ -122,9 +115,7 @@ export function renderProjects(
 
   const validHeadings = new Set(["h1", "h2", "h3", "h4", "h5", "h6"]);
   if (!validHeadings.has(headingLevel)) {
-    console.error(
-      `Invalid heading level "${headingLevel}". Defaulting to "h2".`
-    );
+    console.error(`Invalid heading level "${headingLevel}". Defaulting to "h2".`);
     headingLevel = "h2";
   }
 
@@ -135,8 +126,8 @@ export function renderProjects(
     article.innerHTML = `
         <${headingLevel}>${project.title}</${headingLevel}>
         <img class="project-image" src="${project.image}" alt="${project.title}">
-        <p>${project.year}</p>
         <p>${project.description}</p>
+        <div style="font-family: Baskerville; font-variant-numeric: oldstyle-nums;">c. ${project.year}</div>
     `;
 
     containerElement.appendChild(article);
