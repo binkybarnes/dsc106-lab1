@@ -59,6 +59,7 @@ data.forEach((d, idx) => {
 });
 
 let selectedIndex = -1;
+let selectedYear;
 let svg = d3.select("svg");
 // Refactor all plotting into one function
 function renderPieChart(projectsGiven, keepSelected = false) {
@@ -83,6 +84,7 @@ function renderPieChart(projectsGiven, keepSelected = false) {
 
   // Update paths and legends
   let newLegend = d3.select(".legend");
+
   newArcs.forEach((arc, idx) => {
     d3.select("svg")
       .append("path")
@@ -91,7 +93,22 @@ function renderPieChart(projectsGiven, keepSelected = false) {
       .on("click", () => {
         // SUSSY LINE BUG?
         // when click pie, then type, the clicked state goes away
-        selectedIndex = selectedIndex === idx ? -1 : idx;
+        // selectedIndex = selectedIndex === idx ? -1 : idx;
+
+        selectedYear = newData[idx].label;
+        let filteredProjects;
+        if (selectedIndex === idx) {
+          // turn it off, clicked the same pie
+          if (query) {
+            filteredProjects = projects.filter((project) =>
+              Object.values(project).join("\n").toLowerCase().includes(query)
+            );
+          }
+          selectedYear = null;
+          selectedIndex = -1;
+        } else {
+          selectedIndex = idx;
+        }
 
         svg.selectAll("path").attr("class", (_, i) => (i === selectedIndex ? "selected" : ""));
 
@@ -99,17 +116,30 @@ function renderPieChart(projectsGiven, keepSelected = false) {
           .selectAll("li")
           .attr("class", (_, i) => (i === selectedIndex ? "selected legend-item" : "legend-item"));
 
-        if (selectedIndex === -1) {
-          renderProjects(projects, projectsContainer, "h2");
-        } else {
+        if (selectedIndex !== -1) {
+          // renderProjects(projects, projectsContainer, "h2");
           let selectedYear = newData[selectedIndex].label;
-          let filteredProjects = projects.filter((project) => {
-            let matchesSearch = Object.values(project).join("\n").toLowerCase().includes(query);
-            let matchesYear = project.year === selectedYear;
-            return matchesSearch && matchesYear;
-          });
-          renderProjects(filteredProjects, projectsContainer, "h2");
+          filteredProjects = projects.filter((project) => project.year === selectedYear);
+          if (query) {
+            filteredProjects = filteredProjects.filter((project) =>
+              Object.values(project).join("\n").toLowerCase().includes(query)
+            );
+          }
         }
+        if (filteredProjects) {
+          renderProjects(filteredProjects, projectsContainer, "h2");
+        } else {
+          renderProjects(projects, projectsContainer, "h2");
+        }
+        // else {
+        //   let selectedYear = newData[selectedIndex].label;
+        //   let filteredProjects = projects.filter((project) => {
+        //     let matchesSearch = Object.values(project).join("\n").toLowerCase().includes(query);
+        //     let matchesYear = project.year === selectedYear;
+        //     return matchesSearch && matchesYear;
+        //   });
+        //   renderProjects(filteredProjects, projectsContainer, "h2");
+        // }
       });
   });
   // update paths and legends, refer to steps 1.4 and 2.2
@@ -118,6 +148,9 @@ function renderPieChart(projectsGiven, keepSelected = false) {
   //   newArcs.forEach((arc, idx) => {
   //     d3.select("svg").append("path").attr("d", arc).attr("fill", colors(idx));
   //   });
+
+  // AAAAAAARGHHHH I CANT FIX IT.
+  // type in har query, click a year, delete r from har, the selected color isnt there but it still filters by the same year
 
   newData.forEach((d, idx) => {
     newLegend
@@ -141,11 +174,10 @@ searchInput.addEventListener("input", (event) => {
   query = event.target.value.toLowerCase();
   // TODO: filter the projects
   let filteredProjects = projects.filter((project) => Object.values(project).join("\n").toLowerCase().includes(query));
-
+  let filteredProjectsPie = structuredClone(filteredProjects);
   if (selectedIndex !== -1) {
-    console.log(data);
-    let selectedYear = data[selectedIndex].label;
-    filteredProjects = projects.filter((project) => project.year === selectedYear);
+    // let selectedYear = data[selectedIndex].label;
+    filteredProjects = filteredProjects.filter((project) => project.year === selectedYear);
   }
   //   let filteredProjects = projects.filter((project) => {
   //     let values = Object.values(project).join("\n").toLowerCase();
@@ -153,7 +185,7 @@ searchInput.addEventListener("input", (event) => {
   //   });
   // TODO: render updated projects!
 
-  renderPieChart(filteredProjects, true);
+  renderPieChart(filteredProjectsPie, true);
   renderProjects(filteredProjects, projectsContainer, "h2");
 });
 
